@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 
 import { Chart, CategoryScale, LinearScale, BarElement, PointElement, Tooltip, Legend, } from "chart.js";
-Chart.register(CategoryScale, LinearScale, BarElement, PointElement, Tooltip, Legend,);
 
 import {
   totalSales,
@@ -18,6 +17,7 @@ import {
   trafficSourcesSet3,
   storeVisitors,
 } from "./Data";
+Chart.register(CategoryScale, LinearScale, BarElement, PointElement, Tooltip, Legend,);
 
 export const TotalSalesChart = () => {
   return (
@@ -27,68 +27,68 @@ export const TotalSalesChart = () => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '10px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '10px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 4,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '10px',
+            },
+            bodySpacing: 4,
+            padding: 6,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 4,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '10px',
-              },
-              bodySpacing: 4,
-              padding: 6,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         maintainAspectRatio: false,
         scales: {
-          y:{
-              display: false,
-              ticks: {
-                beginAtZero: false,
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                padding: 0,
+          y: {
+            display: false,
+            ticks: {
+              beginAtZero: false,
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              grid: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-              },
+              padding: 0,
             },
-          x:{
+            grid: {
               display: false,
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                source: "auto",
-                padding: 0,
-              },
-              grid: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-                offsetGridLines: true,
-              },
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
             },
+          },
+          x: {
+            display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
+              },
+              source: "auto",
+              padding: 0,
+            },
+            grid: {
+              display: false,
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+              offsetGridLines: true,
+            },
+          },
         },
       }}
     />
@@ -112,68 +112,68 @@ export const AverageOrderChart = ({ state }) => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '9px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '9px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 6,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '9px',
+            },
+            bodySpacing: 4,
+            padding: 6,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 6,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '9px',
-              },
-              bodySpacing: 4,
-              padding: 6,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         maintainAspectRatio: false,
         scales: {
           y: {
-              display: true,
-              ticks: {
-                beginAtZero: false,
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                padding: 0,
-                display: false,
-                stepSize: 100,
+            display: true,
+            ticks: {
+              beginAtZero: false,
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              grid: {
-                color: "rgba(82, 100, 132, 0.2)",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-              },
-            },
-          x: {
+              padding: 0,
               display: false,
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                source: "auto",
-                padding: 0,
-              },
-              grid: {
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "transparent",
-                offsetGridLines: true,
-              },
+              stepSize: 100,
             },
+            grid: {
+              color: "rgba(82, 100, 132, 0.2)",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+            },
+          },
+          x: {
+            display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
+              },
+              source: "auto",
+              padding: 0,
+            },
+            grid: {
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "transparent",
+              offsetGridLines: true,
+            },
+          },
         },
       }}
     ></Bar>
@@ -188,68 +188,68 @@ export const TotalOrderChart = () => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '10px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '10px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 4,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '10px',
+            },
+            bodySpacing: 4,
+            padding: 6,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 4,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '10px',
-              },
-              bodySpacing: 4,
-              padding: 6,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         maintainAspectRatio: false,
         scales: {
-          y:{
-              display: false,
-              ticks: {
-                beginAtZero: false,
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                padding: 0,
+          y: {
+            display: false,
+            ticks: {
+              beginAtZero: false,
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              grid: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-              },
+              padding: 0,
             },
-          x:{
+            grid: {
               display: false,
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                source: "auto",
-                padding: 0,
-              },
-              grid: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-                offsetGridLines: true,
-              },
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
             },
+          },
+          x: {
+            display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
+              },
+              source: "auto",
+              padding: 0,
+            },
+            grid: {
+              display: false,
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+              offsetGridLines: true,
+            },
+          },
         },
       }}
     />
@@ -264,68 +264,68 @@ export const TotalCustomerChart = () => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '10px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '10px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 4,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '10px',
+            },
+            bodySpacing: 4,
+            padding: 6,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 4,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '10px',
-              },
-              bodySpacing: 4,
-              padding: 6,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         maintainAspectRatio: false,
         scales: {
           y: {
-              display: false,
-              ticks: {
-                beginAtZero: false,
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                padding: 0,
+            display: false,
+            ticks: {
+              beginAtZero: false,
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              gridLines: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-              },
+              padding: 0,
             },
+            gridLines: {
+              display: false,
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+            },
+          },
           x: {
-              display: false,
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                source: "auto",
-                padding: 0,
+            display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              grid: {
-                display: false,
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-                offsetGridLines: true,
-              },
+              source: "auto",
+              padding: 0,
             },
+            grid: {
+              display: false,
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+              offsetGridLines: true,
+            },
+          },
         },
       }}
     />
@@ -349,29 +349,29 @@ export const TrafficSourcesChart = ({ state }) => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '13px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '13px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 6,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '12px',
+            },
+            bodySpacing: 4,
+            padding: 10,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 6,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '12px',
-              },
-              bodySpacing: 4,
-              padding: 10,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         rotation: 1,
@@ -389,68 +389,68 @@ export const StoreVisitorsChart = () => {
       options={{
         plugins: {
           legend: {
-              display: false,
+            display: false,
           },
           tooltip: {
-              enabled: true,
-              displayColors: false,
-              backgroundColor: "#1c2b46",
-              titleFont: {
-                size: '13px',
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "#1c2b46",
+            titleFont: {
+              size: '13px',
+            },
+            titleColor: "#fff",
+            titleMarginBottom: 6,
+            bodyColor: "#fff",
+            bodyFont: {
+              size: '12px',
+            },
+            bodySpacing: 4,
+            padding: 10,
+            footerMarginTop: 0,
+            callbacks: {
+              label: function (context) {
+                return context.parsed.y;
               },
-              titleColor: "#fff",
-              titleMarginBottom: 6,
-              bodyColor: "#fff",
-              bodyFont: {
-                size: '12px',
-              },
-              bodySpacing: 4,
-              padding: 10,
-              footerMarginTop: 0,
-              callbacks: {
-                label: function (context) {
-                    return context.parsed.y;
-                },
-              },
+            },
           },
         },
         maintainAspectRatio: false,
         scales: {
           y: {
-              display: true,
+            display: true,
 
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                padding: 8,
-                stepSize: 2400,
-                display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
               },
-              grid: {
-                color: "rgba(82, 100, 132, 0.2)",
-                tickMarkLength: 0,
-                zeroLineColor: "rgba(82, 100, 132, 0.2)",
-              },
-            },
-          x: {
+              padding: 8,
+              stepSize: 2400,
               display: false,
-              ticks: {
-                color:"#9eaecf", 
-                font: {
-                  size: '12px',
-                },
-                source: "auto",
-                padding: 0,
-              },
-              grid: {
-                color: "transparent",
-                tickMarkLength: 0,
-                zeroLineColor: "transparent",
-                offsetGridLines: true,
-              },
             },
+            grid: {
+              color: "rgba(82, 100, 132, 0.2)",
+              tickMarkLength: 0,
+              zeroLineColor: "rgba(82, 100, 132, 0.2)",
+            },
+          },
+          x: {
+            display: false,
+            ticks: {
+              color: "#9eaecf",
+              font: {
+                size: '12px',
+              },
+              source: "auto",
+              padding: 0,
+            },
+            grid: {
+              color: "transparent",
+              tickMarkLength: 0,
+              zeroLineColor: "transparent",
+              offsetGridLines: true,
+            },
+          },
         },
       }}
     />
