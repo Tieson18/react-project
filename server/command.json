@@ -1,0 +1,54 @@
+{
+	"create controller function": {
+		"prefix": ["crt", "ctr", "crl", "ctl"],
+		"body": [
+			"const ${1:controllerName} = async (req, res) => {",
+			"\ttry {}",
+			"\tcatch(e) {",
+			"\t\tres.status(e.code || 500).send(response(e.message, null, false))",
+			"\t}\n}"
+		]
+	},
+
+	"create model": {
+		"prefix": ["mdl", "mld"],
+		"body": [
+			"const mongoose = require('mongoose');\n",
+			"const ${TM_FILENAME_BASE}Schema = new mongoose.Schema({\n\t$0\n})\n",
+			"module.exports = mongoose.model('${TM_FILENAME_BASE}', ${TM_FILENAME_BASE}Schema)"
+		]
+	},
+
+	"create routes": {
+		"prefix": ["rts", "rtr", "rt"],
+		"body": [
+			"const router = require('express').Router()\n\n",
+			"// GET ALL ${TM_FILENAME_BASE} ROUTE\nrouter.get('/', handleGetAll${TM_FILENAME_BASE})\n",
+			"// POST ${TM_FILENAME_BASE} ROUTE\nrouter.post('/', handlePost${TM_FILENAME_BASE})\n",
+			"// DELETE ${TM_FILENAME_BASE} ROUTE\nrouter.delete('/:id', handlePost${TM_FILENAME_BASE})\n",
+			"// UPDATE ${TM_FILENAME_BASE} ROUTE\nrouter.patch('/:id', handlePost${TM_FILENAME_BASE})\n\n",
+			"module.exports = router"
+		],
+		"description": "Generates router template"
+	},
+
+	"context snippet": {
+		"prefix": ["ctx", "cxt"],
+		"body": [
+			"import { createContext, useContext, useState } from 'react';\n",
+			"const ${TM_FILENAME_BASE} = createContext({});\n",
+			"const ${TM_FILENAME_BASE}Provider = ({ children }) => {",
+			"\tconst [${1:stateName}, ${2:setStateName}] = useState($3);",
+			"\treturn (",
+			"\t<${TM_FILENAME_BASE}.Provider\n\t\tvalue={{\n\t\t\t${1:stateName},\n\t\t\t${2:setStateName},\n\t\t}}\n\t>\n\t\t{children}\n\t</${TM_FILENAME_BASE}.Provider>",
+			"\t);\n};",
+			"\nexport default ${TM_FILENAME_BASE}Provider;",
+			"\nexport const use${TM_FILENAME_BASE} = () => useContext(${TM_FILENAME_BASE})"
+		]
+	},
+	"console code":{
+		"prefix": ["cl", "log", "lg"],
+		"body": "console.log()",
+		"description": "This prints something in the console"
+	}
+}
