@@ -1,6 +1,6 @@
 import { USER_KEY } from "../utils/Constants";
 
-export const BASE_URL = "https://project-api-vy7u.onrender.com/api/v1";
+export const BASE_URL = "https://project-api-b9i7.onrender.com/api/v1";
 
 // ENDPOINTS
 export const RESGISTER_ENDPOINT = BASE_URL + "/auth/admin/signup";
